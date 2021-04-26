@@ -1,6 +1,6 @@
 .home-view {
   display: flex;
-  height: calc(100vh - var(--nav-width));
+  height: calc(100vh - var(--nav-height));
 }
 
 .home-view .schedule-area,
@@ -14,7 +14,7 @@
 }
 
 .home-view .notifications {
-  max-height: calc(100vh - var(--nav-width));
+  max-height: calc(100vh - var(--nav-height));
   overflow-y: auto;
 }
 
