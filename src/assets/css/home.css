@@ -1,0 +1,50 @@
+.home-view {
+  display: flex;
+  height: calc(100vh - var(--nav-width));
+}
+
+.home-view .schedule-area,
+.home-view .notifications {
+  flex: 1;
+  padding: var(--spacing-10) var(--spacing-12);
+}
+
+.home-view .schedule-area {
+  border-right: var(--border-outline-sm) solid var(--border-outline-color);
+}
+
+.home-view .notifications {
+  max-height: calc(100vh - var(--nav-width));
+  overflow-y: auto;
+}
+
+.notification-container {
+  margin-bottom: var(--spacing-6);
+  height: var(--spacing-36);
+  width: 100%;
+  border: var(--border-outline-sm) solid var(--border-outline-color);
+  border-radius: var(--spacing-2);
+  padding: var(--spacing-6);
+  background: var(--app-color-muted);
+}
+
+.calendar {
+  background: linear-gradient(rgba(122, 156, 172, 1), rgba(53, 84, 101, 1));
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: var(--spacing-6);
+}
+
+.button-box {
+  flex: 0 1 var(--spacing-36);
+  height: var(--spacing-36);
+  border: var(--border-outline-sm) solid var(--border-outline-color);
+  border-radius: var(--spacing-2);
+}
+
+.button-box.new-meeting {
+  background-color: rgba(255, 116, 46, 1);
+}
