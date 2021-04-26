@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
           h.getUserFullMedia()
             .then(async (stream) => {
               if (!document.getElementById("local").srcObject) {
-                document.querySelector('#local').nextElementSibling.querySelector('.name').innerText = username;
+                // document.querySelector('#local').nextElementSibling.querySelector('.name').innerText = username;
                 h.setLocalStream(stream);
               }
 
@@ -113,7 +113,7 @@ window.addEventListener("load", () => {
         .then((stream) => {
           //save my stream
           myStream = stream;
-          document.querySelector('#local').nextElementSibling.querySelector('.name').innerText = username;
+          // document.querySelector('#local').nextElementSibling.querySelector('.name').innerText = username;
 
           h.setLocalStream(stream);
         })
@@ -211,16 +211,21 @@ window.addEventListener("load", () => {
           const metaInfo = document.createElement("div");
           metaInfo.className = "meta-info";
           metaInfo.innerHTML = `<div class="user rounded-2x">
-                            <span class="name">
-                                ${pc[partnerName].username}
-                            </span>
-                            <span>
-                                ·
-                            </span>
                         </div>
-                        <button class="btn btn-sm rounded-2x btn-no-effect mute-remote-mic" title="Mute">
+                        <button class="btn btn-sm rounded-2x btn-no-effect mute-remote-mic bg-primary" title="Mute">
                         <i class="fa fa-microphone text-white"></i>
                         </button>`;
+          // metaInfo.innerHTML = `<div class="user rounded-2x">
+          //                   <span class="name">
+          //                       ${pc[partnerName].username}
+          //                   </span>
+          //                   <span>
+          //                       ·
+          //                   </span>
+          //               </div>
+          //               <button class="btn btn-sm rounded-2x btn-no-effect mute-remote-mic bg-primary" title="Mute">
+          //               <i class="fa fa-microphone text-white"></i>
+          //               </button>`;
 
           let videoHolder = document.createElement("div");
           videoHolder.className = "video-holder rounded-2x";

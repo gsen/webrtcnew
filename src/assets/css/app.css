@@ -71,6 +71,7 @@ body {
 }
 
 .header-nav .page-title {
+  font-size: var(--fontSize-3);
 }
 
 .sidenav {

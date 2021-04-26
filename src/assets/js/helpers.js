@@ -1,4 +1,12 @@
+const backgrounds = ['bg-purple ','bg-blue','bg-yellow','bg-red', 'bg-green'];
+const userBackgrounds = new Map();
 export default {
+
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
     generateRandomString() {
         const crypto = window.crypto || window.msCrypto;
         let array = new Uint32Array(1);
@@ -139,7 +147,9 @@ export default {
 
             this.toggleChatNotificationBadge();
         }
-
+        if(!userBackgrounds.has(senderName)){
+            userBackgrounds.set(senderName, backgrounds [this.getRandomInt(0,4)])
+        }
         let chatMsgDiv = document.querySelector( '#chat-messages' );
         let allMessages = chatMsgDiv.querySelectorAll('.user-message')
         const result = senderName.split(' ');
@@ -150,8 +160,8 @@ export default {
         }
         let message = `<div class="user-message" sender="${senderName}">
 
-        <div class="image">
-            [${first}${last? last:''}]
+        <div class="image ${userBackgrounds.get(senderName)} rounded-2x">
+            ${first}${last? last:''}
         </div>
         <div class="message-list">
         <div class="meta">
@@ -162,8 +172,8 @@ export default {
         ${ moment().format( 'HH:mm' )}
         </span>
     </div>
-            <div class="message rounded-2x">
-             <span class="opacity-less">${data.msg}</span>
+            <div class="message">
+             <span class="rounded-2x">${data.msg}</span>
             </div>
         </div>
     </div>`;
@@ -172,8 +182,8 @@ export default {
             let previousSender = lastMessage.getAttribute('sender');
             if(previousSender  == senderName){
                 lastMessage.querySelector('.message-list').innerHTML += `
-                <div class="message rounded-2x"> 
-                    <span class="opacity-less">${data.msg}</span>
+                <div class="message "> 
+                    <span class="rounded-2x">${data.msg}</span>
                 </div>`
             }else{
                 chatMsgDiv.innerHTML+= message;
@@ -185,35 +195,17 @@ export default {
         chatMsgDiv.innerHTML = message;
         }
 
-       
-
-
-
-        // let infoDiv = document.createElement( 'div' );
-        // infoDiv.className = 'sender-info';
-        // infoDiv.innerHTML = `${ senderName } - ${ moment().format( 'Do MMMM, YYYY h:mm a' ) }`;
-
-        // let colDiv = document.createElement( 'div' );
-        // colDiv.className = `col-10 card chat-card msg ${ msgBg }`;
-        // colDiv.innerHTML = xssFilters.inHTMLData( data.msg ).autoLink( { target: "_blank", rel: "nofollow"});
-
-        // let rowDiv = document.createElement( 'div' );
-        // rowDiv.className = `row ${ contentAlign } mb-2`;
-
-
-        // colDiv.appendChild( infoDiv );
-        // rowDiv.appendChild( colDiv );
-
-        // chatMsgDiv.appendChild( rowDiv );
-
         /**
          * Move focus to the newly added message but only if:
          * 1. Page has focus
          * 2. User has not moved scrollbar upward. This is to prevent moving the scroll position if user is reading previous messages.
          */
-        // if ( this.pageHasFocus ) {
-        //     rowDiv.scrollIntoView();
-        // }
+        if ( this.pageHasFocus ) {
+            let messages = document.querySelectorAll('.message');
+            if (messages?.length>0 ){
+                messages[messages.length-1].scrollIntoView();
+            }
+        }
     },
 
 
@@ -271,11 +263,13 @@ export default {
             elem.parentElement.previousElementSibling.muted = true;
             elem.children[0].classList.add( 'fa-microphone-slash' );
             elem.children[0].classList.remove( 'fa-microphone' );
+            elem.classList.remove( 'bg-primary' );
         }
 
         else {
             elem.parentElement.previousElementSibling.muted = false;
             elem.children[0].classList.add( 'fa-microphone' );
+            elem.classList.add( 'bg-primary' );
             elem.children[0].classList.remove( 'fa-microphone-slash' );
         }
     },
