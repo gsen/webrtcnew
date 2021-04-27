@@ -80,32 +80,6 @@
             <div class="inner-container">
                 <nav class="header-nav">
                     <div class="page-title text-white">Home</div>
-        
-                    <div class="pull-right room-comm" hidden>
-                        <button class="btn btn-sm rounded-0 btn-no-effect" id='toggle-video' title="Hide Video">
-                            <i class="fa fa-video text-white"></i>
-                        </button>
-        
-                        <button class="btn btn-sm rounded-0 btn-no-effect" id='toggle-mute' title="Mute">
-                            <i class="fa fa-microphone-alt text-white"></i>
-                        </button>
-        
-                        <button class="btn btn-sm rounded-0 btn-no-effect" id='share-screen' title="Share screen">
-                            <i class="fa fa-desktop text-white"></i>
-                        </button>
-        
-                        <button class="btn btn-sm rounded-0 btn-no-effect" id='record' title="Record">
-                            <i class="fa fa-dot-circle text-white"></i>
-                        </button>
-        
-                        <button class="btn btn-sm text-white pull-right btn-no-effect" id='toggle-chat-pane'>
-                            <i class="fa fa-comment"></i> <span class="badge badge-danger very-small font-weight-lighter" id='new-chat-notification' hidden>New</span>
-                        </button>
-        
-                        <button class="btn btn-sm rounded-0 btn-no-effect text-white">
-                            <a href="/" class="text-white text-decoration-none"><i class="fa fa-sign-out-alt text-white" title="Leave"></i></a>
-                        </button>
-                    </div>
                 </nav>
         
                 <div class="home-view">
@@ -113,10 +87,40 @@
                     <section class="schedule-area">
                         <div class="buttons-container">
                             <button id="new-meeting" type="button" class="button-box new-meeting text-white">
-                                new meeting
+                                <div class="icon rounded-2x">
+                                    <i class="fa-2x fa fa-video text-white"></i>
+                                </div>
+                                <div class="text">
+                                    <div>New meeting</div>
+                                    <div>setup new meeting</div>
+                                </div>
                             </button>
                             <button type="button" class="button-box bg-primary text-white">
-                                 meeting
+                                <div class="icon rounded-2x">
+                                    <i class="fa-2x fa fa-plus-square text-white"></i>
+                                </div>
+                                <div class="text">
+                                    <div>Join Meeting</div>
+                                    <div>via inviation link</div>
+                                </div>
+                            </button>
+                            <button type="button" class="button-box bg-primary text-white">
+                                <div class="icon rounded-2x">
+                                    <i class="fa-2x fa fa-calendar text-white"></i>
+                                </div>
+                                <div class="text">
+                                    <div>Schedule</div>
+                                    <div>plan your meetings</div>
+                                </div>
+                            </button>
+                            <button type="button" class="button-box bg-primary text-white">
+                                <div class="icon rounded-2x">
+                                    <i class="fa-2x fa fa-desktop text-white"></i>
+                                </div>
+                                <div class="text">
+                                    <div>Share Screen</div>
+                                    <div>show your work</div>
+                                </div>
                             </button>
                             <!-- <button type="button" class="button-box bg-primary text-white">
                                  meeting

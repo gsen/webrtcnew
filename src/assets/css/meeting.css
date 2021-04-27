@@ -71,12 +71,18 @@
 .video-holder .meta-info {
   padding: var(--spacing-2) var(--spacing-4);
   width: 100%;
-  align-items: center;
+  height: 100%;
+  align-items: flex-end;
   justify-content: space-between;
   display: flex;
   position: absolute;
-  bottom: var(--spacing-2);
+  top: calc(-1 * var(--spacing-6));
 }
+
+.speaker .meta-info {
+  top: calc(-1 * var(--spacing-4));
+}
+
 .video-holder .user {
   padding: var(--spacing-1) var(--spacing-2);
 }
